@@ -8,6 +8,17 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 namespace :admin do
+  root to: 'homes#top', as: 'admin'
+
+  resources :items, except:[:destroy]
+
+  resources :genres, except:[:new, :show, :destroy]
+
+  resources :customers, except:[:new, :create, :destroy]
+
+  resources :orders, only:[:show, :update]
+
+  resources :order_details, only:[:update]
 end
 
 
