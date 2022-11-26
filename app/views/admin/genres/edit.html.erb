@@ -1,0 +1,20 @@
+<div class="container my-5 ">
+
+  <div class="row m-5">
+    <h4>ジャンル編集</h4>
+  </div>
+
+  <div class="row align-items-center mt-3">
+    <%= form_with model:@genre, url: admin_genres_path, method: :patch do |f| %>
+      <div class="form-group row">
+        <%= f.label :ジャンル名 %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+  <div class="row">
+        <%= f.submit "変更を保存", class: "btn btn-primary mx-auto mt-3" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
