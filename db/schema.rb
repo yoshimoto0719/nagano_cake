@@ -115,6 +115,12 @@ ActiveRecord::Schema.define(version: 2022_12_10_072540) do
   end
 
   create_table "order_details", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
+    t.integer "amount", null: false
+    t.integer "price"
+    t.integer "making_status"
+    t.integer "image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,6 +135,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_072540) do
     t.integer "status"
     t.integer "customer_id"
     t.integer "item_id"
+    t.integer "image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

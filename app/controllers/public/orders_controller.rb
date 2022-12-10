@@ -37,14 +37,14 @@ class Public::OrdersController < ApplicationController
       @item = OrderDetail.new
       @item.item_id = item.item_id
       @item.amount = item.amount
-      @item.price = item.item.add_tax_price
+      @item.price = item.item.with_tax_price
       @item.order_id = @orders.id
       @item.making_status = '着手不可'
       @item.save
    end
 
     current_customer.cart_items.destroy_all
-    redirect_to complete_orders_path
+    redirect_to orders_complete_path
   end
 
   def index

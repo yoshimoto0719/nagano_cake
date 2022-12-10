@@ -10,6 +10,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :status
       t.integer :customer_id
       t.integer :item_id
+      t.integer :image_id
 
       t.timestamps
     end
