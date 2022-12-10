@@ -54,13 +54,16 @@
     </div>
 
     <div class="form-group row">
-      <%= f.submit "新規登録", class: "btn btn-success col-md-1 offset-1" %>
+      <%= f.submit "新規登録", class: "btn btn-success col-md-3 offset-3" %>
     </div>
   <% end %>
 
-  　<div>
-  　   既に登録済みの方
-  　<br>
+  　<div class="row">
+    <div class="col-xl-4 ml-4">
+      <h5 style="background-color:#dcdcdc;", class="my-4">既に登録済みの方</h5>
+    </div>
+    </div>
+    <span class="col-xl-4 ml-4">
   　   <%= link_to "こちら", "/customers/sign_in" %>からログインして下さい。
-  　 </div>
+    </span>
 </div>

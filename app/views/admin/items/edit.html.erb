@@ -1,12 +1,14 @@
-<div class="container">
-  <h3>商品編集</h3>
+<div class="container my-5">
   <div class="row">
+    <h2 style="background-color:#dcdcdc;">商品編集</h2>
+  </div>
+
     <!--colのサイズ設定-->
     <%= form_with model: @item, url: admin_item_path(@item.id), local: true do |f| %>
       <table>
         <tr>
           <th>商品画像</th>
-          <td><%= f._field :image %></td>
+          <td><%= f.file_field :image %></td>
         </tr>
         <tr><td>&nbsp;</td></tr>
         <tr>

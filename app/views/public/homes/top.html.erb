@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-  <div class="col-2 p-2">
-      <%= render "public/items/genre", genre: @genres %>
+    <div class="col-2 p-2">
+      <%= render "public/items/genre", genres: @genres %>
     </div>
-  
-      <div class="top-comment mt-5 border border-dark">
+
+      <div style= "margin-left:130px; margin-top:50px;" class="p-5 cover-text text-dark font-weight-bold border border-dark">
         <p class="text" style="text-align:center;">
           ようこそ、ながのcakeへ</br>
           このサイトはケーキ販売のECサイトになります。</br>
@@ -12,5 +12,38 @@
           購入には会員登録が必要になります。
         </p>
       </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+     <div class="col-3"></div>
+       <h2><strong style="margin:20px;">新着商品</strong></h2>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-3"></div>
+    <% @items.each do |items| %>
+    <div class="col-2">
+      <div>
+        <%= link_to items_path(items) do %>
+          <%= image_tag items.get_item_image(100,100), size: "100x100" %>
+        <% end %>
+      </div>
+      <div>
+        <%= items.name %>
+      </div>
+      <div>
+       ¥<%= items.price %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+    <div class="row my-3">
+      <div class="col-10"></div>
+      <div class="col-2">
+        <%= link_to "全ての商品を見る>", items_path %>
+      </div>
+    </div>
   </div>
 </div>

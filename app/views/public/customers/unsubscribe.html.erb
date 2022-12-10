@@ -1,1 +1,31 @@
-<h1>顧客の退会確認画面</h1>
+<div class="container text">
+
+  <div class="row mb-5">
+
+    <div class="col-12 text-center">
+
+      <h3 class="mt-5 mb-4 font-weight-bold text-">本当に退会しますか?</h3>
+
+      <p>
+        退会すると、会員情報や<br>
+        これまでの購入履歴が閲覧できなくなります。<br>
+        退会する場合は、「退会する」をクリックしてください。
+      </p>
+
+      <div class="row mt-4">
+
+        <div class="offset-4 col-2 text-right">
+          <%= link_to "退会しない", root_path, class: "btn btn-primary" %>
+        </div>
+
+        <div class="col-2 text-left">
+          <%= link_to "退会する", withdraw_path, method: :patch, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }, class: "btn btn-danger btn-block" %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

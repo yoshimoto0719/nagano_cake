@@ -1,16 +1,16 @@
 <div class="container my-5">
   <div class="row">
-    <h2>商品一覧</h2>
+    <h2 style="background-color:#dcdcdc;">商品一覧</h2>
   </div>
-  
- <div class="col-md-1 offset-md-9">
+
+    <div class="col-md-1 offset-md-9">
       <%= link_to new_admin_item_path do %>
         <i class="fas fa-plus-circle fa-3x"></i>
       <% end %>
     </div>
   </div>
 
-    <div class="row">
+    <div class="row　ml-5">
       <table class="table cart_products">
         <tr>
           <th class="col-md-1">商品ID</th>
@@ -29,3 +29,5 @@
         </tr>
         <% end %>
       </table>
+    </div>
+</div>

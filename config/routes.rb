@@ -49,10 +49,8 @@ scope module: :public do
   post '/orders/confirm' => 'orders#confirm'
   get '/orders/complete' => 'orders#complete'
 
-  resources :addresses, except:[:new, :show]
+  resources :addresses, except:[:show]
 end
-
-
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

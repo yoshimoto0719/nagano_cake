@@ -1,18 +1,17 @@
-<div class="container my-5 ">
+<div class="container my-5">
 
   <div class="row m-5">
-    <h4>商品新規登録</h4>
+    <h4 style="background-color:#dcdcdc;">商品新規登録</h4>
   </div>
-  
-  <%= form_for(@item, url: admin_items_path) do |f| %>
 
-    <div class="row mt-5">
-      <div class="col-sm-4">
+  <%= form_with model: @item, url: admin_items_path,local: true do |f| %>
+
+      <div class="col-sm-5">
         <%= f.label :商品画像 %>
         <%= f.file_field :image %>
       </div>
 
-      <div class="col-sm-5">
+      <div class="col-sm-5 mt-3">
         <div class="form-group row">
           <%= f.label :商品名, class: "col-sm-4" %>
           <%= f.text_field :name, class: "form-control col-sm-8" %>
@@ -29,19 +28,19 @@
         </div>
 
         <div class="form-group row">
-          <%= f.label :税抜き価格, class: "col-sm-4" %>
+          <%= f.label :税抜価格, class: "col-sm-4" %>
           <%= f.text_field :price, class: "form-control col-sm-7" %>
           <span class="mt-auto ml-3">円</span>
         </div>
 
         <div class="form-group row">
           <%= f.label :販売ステータス, class: "col-sm-4" %>
-          <%= f.select :sale_status, [["販売可", "販売可"], ["販売不可","販売不可"]], class: "form-control col-sm-8" %>
+          <%= f.select :sale_status, [["販売中", "販売中"], ["販売停止中","販売停止中"]], class: "form-control col-sm-8" %>
         </div>
       </div>
 
       <div class="col-sm-2 mt-auto ml-5">
-        <%= f.submit :新規登録, class: "btn btn-primary" %>
+        <%= f.submit :新規登録, class: "btn btn-success" %>
       </div>
 
     </div>

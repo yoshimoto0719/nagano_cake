@@ -1,1 +1,62 @@
-<h1>カート内商品一覧画面</h1>
+<div class="container my-5 ">
+
+  <div class="row m-5">
+    <h4 style="background-color:#dcdcdc;">ショッピングカート</h4>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="col-md-10 table table-bordered border border-dark">
+        <thead>
+          <th style="width: 35% ">商品名</th>
+          <th style="width: 15%">単価（税込）</th>
+          <th style="width: 20%">数量</th>
+          <th style="width: 15%">小計</th>
+          <th style="width: 15%"></th>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+             <td>
+              <%= image_tag cart_item.item.get_item_image(100,100), size: "100x100" %>
+              <%= cart_item.item.name %>
+            </td>
+            <td><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+            <td>
+              <%= form_with model:cart_item, local: true do |f| %>
+                <%= f.select :amount, *[1..10] %>
+                <%= f.submit '変更' %>
+              <% end %>
+            </td>
+            <td><%= cart_item.item.with_tax_price %></td>
+            <% @total +=  cart_item.subtotal %>
+            <td>
+              <%= link_to "削除する", cart_item_path(cart_item), method: :delete,class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<br>
+<br>
+  <div class="row">
+    <div class="col-md-2 offset-md-2 mb-5">
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-3 offset-md-3 mb-5">
+      <table class="table table-bordered float-md-light">
+        <tr>
+          <th class="table-warning"  style="width: 50%">合計金額</th>
+          <td style="width: 50%"><%= @total.to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto mb-5">
+      <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

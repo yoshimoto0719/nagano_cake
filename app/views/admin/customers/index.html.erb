@@ -22,10 +22,10 @@
             <tbody>
               <% @customers.each do |customer| %>
                 <tr class="light-text">
-                  <td><%= customer.id %></th>
+                  <td><%= customer.id %></td>
                   <td class="text">
                     <%= link_to admin_customer_path(customer), class: "text-dark" do %>
-                      <%= customer.last_name + customer.first_name %>
+                      <%= customer.last_name %><%= customer.first_name %>
                     <% end %>
                   </td>
                   <td>
