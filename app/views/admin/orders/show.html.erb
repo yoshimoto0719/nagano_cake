@@ -1,7 +1,7 @@
 <div class="container my-5 ">
 
   <div class="row m-5">
-    <h4>注文履歴詳細</h4>
+    <h4 style="background-color:#dcdcdc;">注文履歴詳細</h4>
   </div>
 
   <div class="col-6">
@@ -27,14 +27,14 @@
         <th>注文ステータス</th>
         <td>
           <!--enum-->
-          <%= f.select :status, ['入金待ち','入金確認','製作中','発送準備中','発送済み'], :selected => @order.status %>
+          <%= f.select :status, Order.statuses_i18n.invert %>
           <%= f.submit "更新", class:"btn btn-success" %>
         </td>
         <% end %>
       </tr>
     </table>
   </div>
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-7">
       <table class="table table-bordered">
         <thead>
@@ -54,10 +54,9 @@
             <% @total +=  order_detail.price * order_detail.amount %>
             <td>
               <div>
-                <!--modelはネストしている為、親と子が必要-->
-                <!--urlは@orderとorder_detailの2つのidが必要-->
-                <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(@order,order_detail), local: true) do |f| %>
-                  <%= f.select :making_status, options_for_select([['着手不可'],['製作待ち'],['製作中'],['製作完了']], {:selected => order_detail.making_status}) %>
+
+                <%= form_with(model:[@order, order_detail], url: admin_order_detail_path(@order,order_detail), local: true) do |f| %>
+                  <%= f.select :making_status,OrderDetail.making_statuses_i18n.invert %>
                   <%= f.submit "更新", class:"btn btn-success" %>
                 <% end %>
               </div>

@@ -22,6 +22,7 @@ namespace :admin do
   resources :customers, except:[:new, :create, :destroy]
 
   resources :orders, only:[:show, :update]
+  get '/admin/orders/:id' => 'orders#show'
 
   resources :order_details, only:[:update]
 end

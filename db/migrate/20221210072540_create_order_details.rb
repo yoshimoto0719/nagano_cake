@@ -8,6 +8,7 @@ class CreateOrderDetails < ActiveRecord::Migration[6.1]
       t.integer :price
       t.integer :making_status
       t.integer :image_id
+      t.integer :status
 
       t.timestamps
     end

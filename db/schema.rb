@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_072540) do
     t.integer "price"
     t.integer "making_status"
     t.integer "image_id"
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

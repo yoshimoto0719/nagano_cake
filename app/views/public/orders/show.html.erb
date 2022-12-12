@@ -1,7 +1,7 @@
 <div class="container my-5 ">
 
   <div class="row m-5">
-    <h4>注文履歴詳細</h4>
+    <h4 style="background-color:#dcdcdc;">注文履歴詳細</h4>
   </div>
 
   <div class="container">
@@ -62,9 +62,9 @@
           <% @order.order_details.each do |item| %>
           <tr>
             <td><%= item.item.name %></td>
-            <td><%= (item.item.add_tax_price) %> 円</td>
+            <td><%= (item.item.with_tax_price) %> 円</td>
             <td><%= item.amount %> 個</td>
-            <td><%= ((item.item.add_tax_price) * item.amount).to_s(:delimited) %> 円</td>
+            <td><%= ((item.item.with_tax_price) * item.amount).to_s(:delimited) %> 円</td>
           </tr>
           <% end %>
         </tbody>
