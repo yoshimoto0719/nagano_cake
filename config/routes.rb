@@ -13,7 +13,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 # 管理者用(admin)
 namespace :admin do
-  root to: 'homes#top', as: 'admin'
+  get root to: 'homes#top'
 
   resources :items, except:[:destroy]
 
@@ -49,7 +49,6 @@ scope module: :public do
   get '/orders/complete' => 'orders#complete'
   resources :orders, except:[:edit, :update, :destroy]
   post '/orders/confirm' => 'orders#confirm'
-
 
   resources :addresses, except:[:show]
 end

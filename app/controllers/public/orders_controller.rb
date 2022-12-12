@@ -39,7 +39,7 @@ class Public::OrdersController < ApplicationController
       @item.amount = item.amount
       @item.price = item.item.with_tax_price
       @item.order_id = @orders.id
-      @item.making_status = '着手不可'
+      @item.making_status = '製作不可'
       @item.save
    end
 

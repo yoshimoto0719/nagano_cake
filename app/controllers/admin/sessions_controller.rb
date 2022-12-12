@@ -7,9 +7,14 @@ class Admin::SessionsController < Devise::SessionsController
   def new
    super
   end
-  
+
   def after_sign_in_path_for(resource)
     admin_items_path(resource)
+  end
+
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました"
+    admin_sign_in_path(resource)
   end
 
   # POST /resource/sign_in
