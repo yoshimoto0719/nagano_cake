@@ -22,7 +22,8 @@
             </td>
             <td><%= item.item.with_tax_price.to_s(:delimited) %></td>
             <td><%= item.amount %></td>
-            <td><% @total +=  item.subtotal %></td>
+            <td><%= item.subtotal.to_s(:delimited) %></td>
+            <% @total += item.subtotal %>
           </tr>
           <% end %>
         </tbody>

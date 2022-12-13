@@ -42,9 +42,8 @@ scope module: :public do
   get '/customers/information/edit' => 'customers#edit'
   put 'customer/update' => 'customers#update'
   patch '/customers/information' => 'customers#update'
-
-  resources :cart_items, except:[:show, :new, :edit]
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+  resources :cart_items, except:[:show, :new, :edit]
 
   get '/orders/complete' => 'orders#complete'
   resources :orders, except:[:edit, :update, :destroy]
