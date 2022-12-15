@@ -12,7 +12,10 @@ class Admin::SessionsController < Devise::SessionsController
     admin_items_path(resource)
   end
 
-  
+  def after_sign_out_path_for(resource)
+    admin_session_path # ログアウト後に遷移するpathを設定
+  end
+
 
   # POST /resource/sign_in
   def create
@@ -23,7 +26,7 @@ class Admin::SessionsController < Devise::SessionsController
   def destroy
    super
   end
-  
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
